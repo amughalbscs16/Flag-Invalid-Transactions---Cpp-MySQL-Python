@@ -1,11 +1,11 @@
-drop database save;
+/*drop database save;
 create database save;
 use save;
 create table accounts(
    first_name VARCHAR(50) NOT NULL,
    last_name VARCHAR(40) NOT NULL,
    street_address VARCHAR(100) NOT NULL,
-   unit VARCHAR(10) NULL,
+   unit smallint NULL,
    city VARCHAR(20) NOT NULL,
    state VARCHAR(5) NOT NULL,
    zip VARCHAR(8) NOT NULL,
@@ -35,3 +35,17 @@ create table transactions(
    references accounts(account_number)
 );
 select * from transactions;
+*/
+
+/*
+insert into accounts (first_name, last_name, street_address, unit, city, state, zip, dob, ssn, email_address, mobile_number, account_number) 
+values ("a", "b", "aa", 1, "a", "b", "2", "2019-10-12", "100000", "abc@abc.com", 129399, 1222);
+
+select * from accounts;
+
+
+insert into transactions (account_number, transaction_datetime, transaction_amount, post_date, merchant_number, merchant_description, merchant_category_code, transaction_number) 
+values (1222, "2010-12-12 21:10:10", 100.100, "2010-10-10", 10000, "DEF", 1000, 1000);
+
+select * from transactions;
+*/
