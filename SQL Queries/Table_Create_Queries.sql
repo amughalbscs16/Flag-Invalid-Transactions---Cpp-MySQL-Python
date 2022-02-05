@@ -1,4 +1,4 @@
-/*drop database save;
+drop database save;
 create database save;
 use save;
 create table accounts(
@@ -28,6 +28,7 @@ create table transactions(
    post_date date not null,
    merchant_number VARCHAR(20) NOT NULL,
    merchant_description VARCHAR(100) not null,
+   merchant_state VARCHAR(5) NOT NULL,
    merchant_category_code int not null,
    transaction_number int not null,
    PRIMARY KEY (transaction_id),
@@ -36,7 +37,7 @@ create table transactions(
 );
 select * from transactions;
 
-
+/*		
 insert into accounts (first_name, last_name, street_address, unit, city, state, zip, dob, ssn, email_address, mobile_number, account_number) 
 values ("a", "b", "aa", 1, "a", "b", "2", "2019-10-12", "100000", "abc@abc.com", 129399, 1222);
 
