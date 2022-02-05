@@ -25,6 +25,7 @@ private:
 	map <string, double> positive_sum_transaction;
 	//merchant_num -> transaction_number -> Transaction 
 	map < string, map<int, Transaction> > merchant_transactions;
+	
 
 public:
 	Account()
@@ -61,18 +62,77 @@ public:
 			return;
 		}
 	}
-	void filter_transactions_rule_2()
-	{
+	void filter_transaction_rule_2() {
 
 	}
+
 	void add_transaction_merchant(Transaction trans)
 	{
+		/*
 		// merchant_num -> count_transactions
 		map <string, int> count_merchant_transactions;
 		// merchant_num -> sum_transactions;
 		map <string, double> sum_transaction;
 		//merchant_num -> transaction_number -> Transaction 
 		map < string, map<int, Transaction> > merchant_transactions;
+		*/
+		// if transaction positive
+			// if a merchant in 
+			// positive_merchant_count
+			//	update value += 1
+			// if a merchant not in positive_merchant_count
+			// initialize with 0
+		
+		// Taking positives into account just in case (+ives are very low in number, and I was not sure if it is credit or debit) 
+		if (trans.get_transaction_amount() > 0)
+		{
+			//If merchant in positive_count_merchant
+			if (this->positive_count_merchant.find(trans.get_merchant_number()) != this->positive_count_merchant.end())
+			{
+				this->positive_count_merchant[trans.get_merchant_number()] += 1;
+				this->positive_sum_transaction[trans.get_merchant_number()] += trans.get_transaction_amount();
+			}
+			else
+			{
+				this->positive_count_merchant.insert(pair<string, int>(trans.get_merchant_number(), 1));
+				this->positive_sum_transaction.insert(pair<string, double>(trans.get_merchant_number(), trans.get_transaction_amount()));
+			}
+			cout << "positive value" << this->positive_count_merchant[trans.get_merchant_number()] << " " << this->positive_sum_transaction[trans.get_merchant_number()] << endl;
+
+		}
+		// If Negatives (Majority of the given cases)
+		else if (trans.get_transaction_amount() < 0)
+		{
+			// If merchant in negative_count_merchant
+			if (this->negative_count_merchant.find(trans.get_merchant_number()) != this->negative_count_merchant.end())
+			{
+				this->negative_count_merchant[trans.get_merchant_number()] += 1;
+				this->negative_sum_transaction[trans.get_merchant_number()] += trans.get_transaction_amount();
+			}
+			else
+			{
+				this->negative_count_merchant.insert(pair<string, int>(trans.get_merchant_number(), 1));
+				this->negative_sum_transaction.insert(pair<string, double>(trans.get_merchant_number(), trans.get_transaction_amount()));
+			}
+			cout << "negative value" << this->negative_count_merchant[trans.get_merchant_number()] << " " << this->negative_sum_transaction[trans.get_merchant_number()] << endl;
+
+		}
+
+		//if (map < string, map<int, Transaction> >)
+
+			
+
+		// if transaction negative
+			
+		/*
+		//Rule 2
+		if (this->get_state().compare(trans.get_merchant_state()) != 0)
+		{
+			cout << "Account ID:" << this->get_account_number() << " Trans " << trans.get_account_number() << " - ";
+			cout << "Actual State: " << this->get_state() << " Merchant State:" << trans.get_merchant_state() << endl;
+		}
+		*/
+
 		return;
 	}
 	double get_average_transaction(string merchant)

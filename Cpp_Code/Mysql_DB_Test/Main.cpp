@@ -23,7 +23,7 @@ MYSQL* make_mysql_conn()
 	}
 }
 
-void read_transactions(MYSQL* conn, map<int, Transaction> transactions, map<int, Account>& accounts)
+void read_transactions(MYSQL* conn, map<int, Transaction>& transactions, map<int, Account>& accounts)
 {
 	int qstate;
 	MYSQL_ROW row;
@@ -53,6 +53,7 @@ void read_transactions(MYSQL* conn, map<int, Transaction> transactions, map<int,
 			transactions.insert(pair<int, Transaction>(account_number, new_transaction));
 
 			//Update merchant transactions in each account
+			//cout << account_number;
 			accounts[account_number].add_transaction_merchant(new_transaction);
 		}
 	}
@@ -105,12 +106,12 @@ void read_accounts(MYSQL* conn, map<int, Account>& accounts)
 int main()
 {
 	MYSQL* conn = make_mysql_conn();
-	vector<Transaction> transactions;
 	map<int, Account> accounts;
-	
+	map<int, Transaction> transactions;
+
 	if (conn) {
 		read_accounts(conn, accounts);
-		//read_transactions(conn, accounts, transactions);
+		read_transactions(conn, transactions, accounts);
 	}
 
 
