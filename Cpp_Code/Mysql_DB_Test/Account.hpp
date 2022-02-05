@@ -8,13 +8,13 @@ private:
 	string city;
 	string state;
 	string zip;
-	string date;
+	string dob;
 	string ssn;
 	string email_address;
-	long mobile_number;
+	long long mobile_number;
 	int account_number;
 public:
-	Account(string fname, string lname, string st_ad, int unit, string city, string state, string zip, string date, string ssn, string email, long mob_num, int acc_num)
+	Account(string fname, string lname, string st_ad, int unit, string city, string state, string zip, string dob, string ssn, string email, long long mob_num, int acc_num)
 	{
 		this->set_first_name(fname);
 		this->set_last_name(lname);
@@ -23,7 +23,7 @@ public:
 		this->set_city(city);
 		this->set_state(state);
 		this->set_zip(zip);
-		this->set_date(date);
+		this->set_dob(dob);
 		this->set_ssn(ssn);
 		this->set_email_address(email);
 		this->set_mobile_number(mob_num);
@@ -57,8 +57,8 @@ public:
 	{
 		this->zip = zip;
 	}
-	void set_date(string date) {
-		this->date = date;
+	void set_dob(string dob) {
+		this->dob = dob;
 	}
 	void set_ssn(string ssn) {
 		this->ssn = ssn;
@@ -67,7 +67,7 @@ public:
 	{
 		this->email_address = email;
 	}
-	void set_mobile_number(long mobile_number) {
+	void set_mobile_number(long long mobile_number) {
 		this->mobile_number = mobile_number;
 	}
 	void set_account_number(int account_number)
@@ -103,8 +103,8 @@ public:
 	{
 		return this->zip;
 	}
-	string get_date() {
-		return this->date;
+	string get_dob() {
+		return this->dob;
 	}
 	string get_ssn() {
 		return this->ssn;
@@ -113,11 +113,13 @@ public:
 	{
 		return this->email_address;
 	}
-	long get_mobile_number() {
+	long long get_mobile_number() {
 		return this->mobile_number;
 	}
 	int get_account_number()
 	{
 		return this->account_number;
 	}
+
 };
+

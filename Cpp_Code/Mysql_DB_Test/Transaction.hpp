@@ -96,4 +96,6 @@ public:
 	int get_transaction_number(int trans_num) {
 		return this->transaction_number;
 	}
+
+
 };
