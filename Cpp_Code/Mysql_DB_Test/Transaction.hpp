@@ -1,4 +1,4 @@
-#include "Imports.hpp";
+#include "imports.hpp"
 
 class Transaction {
 private:
@@ -9,10 +9,12 @@ private:
 	string post_date;
 	string merchant_number;
 	string merchant_description;
+	string merchant_state;
 	int merchant_category_code;
 	int transaction_number;
 public:
-	Transaction(int trans_id, int acc_num, string trans_datetime, double trans_amount, string post_date, string merc_num, string merc_desc, int merc_cate_code, int trans_num)
+
+	Transaction(int trans_id, int acc_num, string trans_datetime, double trans_amount, string post_date, string merc_num, string merc_desc, string merc_state, int merc_cate_code, int trans_num)
 	{
 		this->set_transaction_id(trans_id);
 		this->set_account_number(acc_num);
@@ -21,6 +23,7 @@ public:
 		this->set_post_date(post_date);
 		this->set_merchant_number(merc_num);
 		this->set_merchant_description(merc_desc);
+		this->set_merchant_state(merc_state);
 		this->set_merchant_category_code(merc_cate_code);
 		this->set_transaction_number(trans_num);
 	}
@@ -51,6 +54,10 @@ public:
 
 	void set_merchant_description(string merc_desc) {
 		this->merchant_description = merc_desc;
+	}
+	void set_merchant_state(string merc_state)
+	{
+		this->merchant_state = merc_state;
 	}
 
 	void set_merchant_category_code(int merc_cat_code) {
@@ -87,6 +94,11 @@ public:
 
 	string get_merchant_description() {
 		return this->merchant_description;
+	}
+
+	string get_merchant_state()
+	{
+		return this->merchant_state;
 	}
 
 	int get_merchant_category_code(int merc_cat_code) {

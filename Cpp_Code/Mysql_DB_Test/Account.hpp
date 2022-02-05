@@ -1,4 +1,5 @@
-#include "Imports.hpp"
+#include "Transaction.hpp"
+
 class Account {
 private:
 	string first_name;
@@ -13,7 +14,23 @@ private:
 	string email_address;
 	long long mobile_number;
 	int account_number;
+	// string string: 
+	// merchant_num -> count_transactions
+	map <string, int> negative_count_merchant;
+	// merchant_num -> sum_transactions;
+	map <string, double> negative_sum_transaction;
+	// merchant_num -> count_transactions
+	map <string, int> positive_count_merchant;
+	// merchant_num -> sum_transactions;
+	map <string, double> positive_sum_transaction;
+	//merchant_num -> transaction_number -> Transaction 
+	map < string, map<int, Transaction> > merchant_transactions;
+
 public:
+	Account()
+	{
+
+	}
 	Account(string fname, string lname, string st_ad, int unit, string city, string state, string zip, string dob, string ssn, string email, long long mob_num, int acc_num)
 	{
 		this->set_first_name(fname);
@@ -28,6 +45,40 @@ public:
 		this->set_email_address(email);
 		this->set_mobile_number(mob_num);
 		this->set_account_number(acc_num);
+	}
+	void filter_transactions_rule_1()
+	{
+		// if key in map
+		// if transaction_amount > 2*average
+		// write info in a file.
+		if (true)
+		{
+			return;
+		}
+		//
+		else
+		{
+			return;
+		}
+	}
+	void filter_transactions_rule_2()
+	{
+
+	}
+	void add_transaction_merchant(Transaction trans)
+	{
+		// merchant_num -> count_transactions
+		map <string, int> count_merchant_transactions;
+		// merchant_num -> sum_transactions;
+		map <string, double> sum_transaction;
+		//merchant_num -> transaction_number -> Transaction 
+		map < string, map<int, Transaction> > merchant_transactions;
+		return;
+	}
+	double get_average_transaction(string merchant)
+	{
+		//return average transaction of a merchant.
+		return 0.0;
 	}
 	void set_first_name(string first_name)
 	{
@@ -122,4 +173,3 @@ public:
 	}
 
 };
-

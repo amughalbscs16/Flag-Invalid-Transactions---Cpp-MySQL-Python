@@ -1,8 +1,6 @@
 // Main.cpp
 //
-
-#include "Account.hpp";
-#include "Transaction.hpp";
+#include "Account.hpp"
 
 MYSQL* make_mysql_conn()
 {
@@ -25,17 +23,18 @@ MYSQL* make_mysql_conn()
 	}
 }
 
-void read_transactions(MYSQL* conn, vector<Transaction>& transactions)
+void read_transactions(MYSQL* conn, map<int, Transaction> transactions, map<int, Account>& accounts)
 {
 	int qstate;
 	MYSQL_ROW row;
 	MYSQL_RES* res;
 	string query = 
-		"SELECT transaction_id, account_number, transaction_datetime, transaction_amount, post_date, merchant_number, merchant_description, merchant_category_code, transaction_number FROM transactions";
+		"SELECT transaction_id, account_number, transaction_datetime, transaction_amount, post_date, merchant_number, merchant_description, merchant_state, merchant_category_code, transaction_number FROM transactions";
 	const char* q = query.c_str();
 	qstate = mysql_query(conn, q);
 	if (!qstate)
 	{
+		//Add and process transactions
 		res = mysql_store_result(conn);
 		while (row = mysql_fetch_row(res))
 		{
@@ -46,10 +45,15 @@ void read_transactions(MYSQL* conn, vector<Transaction>& transactions)
 			string post_date = row[4];
 			string merchant_number = row[5];
 			string merchant_description = row[6];
-			int merchant_category_code = stoi(row[7]);
-			int transaction_number = stoi(row[8]);
-			Transaction new_transaction = Transaction(transaction_id, account_number, transaction_datetime, transaction_amount, post_date, merchant_number, merchant_description, merchant_category_code, transaction_number);		
-			
+			string merchant_state = row[7];
+			int merchant_category_code = stoi(row[8]);
+			int transaction_number = stoi(row[9]);
+
+			Transaction new_transaction = Transaction(transaction_id, account_number, transaction_datetime, transaction_amount, post_date, merchant_number, merchant_description, merchant_state, merchant_category_code, transaction_number);		
+			transactions.insert(pair<int, Transaction>(account_number, new_transaction));
+
+			//Update merchant transactions in each account
+			accounts[account_number].add_transaction_merchant(new_transaction);
 		}
 	}
 	else
@@ -59,7 +63,7 @@ void read_transactions(MYSQL* conn, vector<Transaction>& transactions)
 
 }
 
-void read_accounts(MYSQL* conn, vector<Account>& accounts)
+void read_accounts(MYSQL* conn, map<int, Account>& accounts)
 {
 	int qstate;
 	MYSQL_ROW row;
@@ -72,14 +76,12 @@ void read_accounts(MYSQL* conn, vector<Account>& accounts)
 		res = mysql_store_result(conn);
 		while (row = mysql_fetch_row(res))
 		{
-			int unit;
+			int unit_x = -1;
 			string first_name = row[0];
 			string last_name = row[1];
 			string street_address = row[2];
-			if (row[3] == NULL)
-				unit = -1;
-			else
-				int unit = stoi(row[3]);
+			if (row[3] != NULL)
+				unit_x = stoi(row[3]);
 			string city = row[4];
 			string state = row[5];
 			string zip = row[6];
@@ -88,8 +90,10 @@ void read_accounts(MYSQL* conn, vector<Account>& accounts)
 			string email_address = row[9];
 			long long mobile_number = stoll(row[10]);
 			int account_number = stoi(row[11]);
-			Account new_account = Account(first_name, last_name, street_address, unit, city, state, zip, dob, ssn, email_address, mobile_number, account_number);
+
+			Account new_account = Account(first_name, last_name, street_address, unit_x, city, state, zip, dob, ssn, email_address, mobile_number, account_number);
 			
+			accounts.insert(pair<int, Account>(account_number, new_account));
 		}
 	}
 	else
@@ -98,19 +102,17 @@ void read_accounts(MYSQL* conn, vector<Account>& accounts)
 	}
 }
 
-
 int main()
 {
-	
-
 	MYSQL* conn = make_mysql_conn();
 	vector<Transaction> transactions;
-	vector<Account> accounts;
-	if (conn) {
-		read_transactions(conn, transactions);
-		read_accounts(conn, accounts);
-	}
+	map<int, Account> accounts;
 	
+	if (conn) {
+		read_accounts(conn, accounts);
+		//read_transactions(conn, accounts, transactions);
+	}
+
 
 	return 0;
 }
