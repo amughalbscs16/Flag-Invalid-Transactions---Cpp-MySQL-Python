@@ -13,7 +13,9 @@ private:
 	int merchant_category_code;
 	int transaction_number;
 public:
-
+	Transaction() {
+		
+	}
 	Transaction(int trans_id, int acc_num, string trans_datetime, double trans_amount, string post_date, string merc_num, string merc_desc, string merc_state, int merc_cate_code, int trans_num)
 	{
 		this->set_transaction_id(trans_id);
@@ -101,11 +103,11 @@ public:
 		return this->merchant_state;
 	}
 
-	int get_merchant_category_code(int merc_cat_code) {
+	int get_merchant_category_code() {
 		return this->merchant_category_code;
 	}
 
-	int get_transaction_number(int trans_num) {
+	int get_transaction_number() {
 		return this->transaction_number;
 	}
 

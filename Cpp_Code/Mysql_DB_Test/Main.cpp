@@ -103,16 +103,44 @@ void read_accounts(MYSQL* conn, map<int, Account>& accounts)
 	}
 }
 
+void apply_flag_rules(map<int, Account> accounts, vector<Transaction_Account>& flagged_transactions_rule_1, vector<Transaction_Account>& flagged_transactions_rule_2)
+{
+	//Iterate over each of the accounts
+	auto iter = accounts.begin();
+	while (iter != accounts.end()) {
+		//Call rule 1
+		//iter->second.filter_transactions_rule_1(flagged_transactions_rule_1);
+		
+		//Call rule 2
+		iter->second.filter_transactions_rule_2(flagged_transactions_rule_2);
+		
+		++iter;
+	}
+	
+
+}
+void write_flagged_transactions(map<int, Account> accounts, vector<Transaction_Account>& flagged_transactions_rule_1, vector<Transaction_Account>& transactions_rule_2)
+{
+
+}
+
 int main()
 {
 	MYSQL* conn = make_mysql_conn();
 	map<int, Account> accounts;
 	map<int, Transaction> transactions;
-
+	vector<Transaction_Account> flagged_transactions_rule_1;
+	vector<Transaction_Account> flagged_transactions_rule_2;
 	if (conn) {
 		read_accounts(conn, accounts);
 		read_transactions(conn, transactions, accounts);
 	}
+	apply_flag_rules(accounts, flagged_transactions_rule_1, flagged_transactions_rule_2);
+	for (int i = 0; i < flagged_transactions_rule_2.size(); i++)
+	{
+		cout << "Shopped State: " << flagged_transactions_rule_2[i].get_shopped_state() << "Actual: " << flagged_transactions_rule_2[i].get_actual_state() << endl;
+	}
+	write_flagged_transactions(accounts, flagged_transactions_rule_1, flagged_transactions_rule_2);
 
 
 	return 0;

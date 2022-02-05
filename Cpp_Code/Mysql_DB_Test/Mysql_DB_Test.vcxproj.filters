@@ -29,5 +29,8 @@
     <ClInclude Include="Imports.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Transaction_Account.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
