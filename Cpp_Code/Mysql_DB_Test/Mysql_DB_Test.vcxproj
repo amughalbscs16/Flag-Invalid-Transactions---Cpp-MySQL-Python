@@ -150,6 +150,9 @@
     <ClCompile Include="Transaction.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Apply_Rules.hpp" />
+    <ClInclude Include="Database_Access.hpp" />
+    <ClInclude Include="Generate_Output.hpp" />
     <ClInclude Include="Imports.hpp" />
     <ClInclude Include="Transaction_Account.hpp" />
   </ItemGroup>

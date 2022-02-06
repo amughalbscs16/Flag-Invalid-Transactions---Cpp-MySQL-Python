@@ -32,5 +32,14 @@
     <ClInclude Include="Transaction_Account.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Database_Access.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Apply_Rules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Generate_Output.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
