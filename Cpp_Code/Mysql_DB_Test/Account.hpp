@@ -124,7 +124,9 @@ public:
 				// If this state != trans insert (info to the flagged transactions)
 				if (this->get_state().compare(transaction_iter->second.get_merchant_state()) != 0)
 				{
+
 					Transaction trans = transaction_iter->second;
+					cout << this->get_state() << " " + trans.get_merchant_state() << endl;
 					Transaction_Account trans_account;
 					this->make_transaction_account(trans_account, trans);
 					flagged_transactions.push_back(trans_account);
@@ -188,14 +190,11 @@ public:
 		
 
 
-		/*This part has an error */
+
 		if (this->merchant_transactions.find(trans.get_merchant_number()) != this->merchant_transactions.end())
 		{
 			string merchant_number = trans.get_merchant_number();
-			if (trans.get_transaction_amount() == -10000)
-			{
-				this->merchant_transactions[merchant_number].insert(pair<int, Transaction>(trans.get_transaction_id(), trans));
-			}	
+			this->merchant_transactions[merchant_number].insert(pair<int, Transaction>(trans.get_transaction_id(), trans));
 		}
 		else
 		{

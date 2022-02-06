@@ -1,17 +1,36 @@
 Fraud Rule 1: (Transactions > 5 times the average of other transactions with same merchant)
 Name                     Account Number           Transaction Number       Merchant                           Transaction Amount       
+Smith Michael            11111                    5411                     KROGER                             $2300.00                  
+Wilda Giguere            15041                    5912                     CVS/PHARMACY                       $93.66                    
+Chanel Caudy             15482                    5200                     THEHOMEDEPOT                       $18.88                    
+Marjory Mastella         15971                    4829                     CASHAPP                            $80.50                    
 Shenika Seewald          17504                    5542                     SUNOCO                             $30.25                    
 Lenna Paprocki           18393                    5310                     WALMART                            $20.28                    
+Lenna Paprocki           18393                    5310                     WalMartStoreHOUSTON                $49.97                    
 Francine Vocelka         20759                    5912                     CVS/PHARMACY                       $299.39                   
+Francine Vocelka         20759                    5411                     CENTRALMARKET                      $75.06                    
 Doe John                 22222                    5812                     BESTBUY                            $10000.00                 
 Jose Stockham            22965                    7298                     FLIRTSPAANDBROWBARMANHASSET        $150.00                   
+Rozella Ostrosky         24029                    5941                     ACADEMYSPORTS                      $134.18                   
+Karl Klonowski           25770                    5411                     SAFEWAY                            $91.33                    
 Karl Klonowski           25770                    5812                     GONZORAMEN                         $27.91                    
 Minna Amigon             28226                    5499                     CHILLOUTSNOWBALLSRICHMOND          $10.50                    
+Minna Amigon             28226                    5735                     APPLE/BILL                         $9.99                     
 Kimbery Madarang         30772                    5814                     MCDONALD                           $1.08                     
+Blondell Pugh            30808                    5411                     SPROUTSFARMERSMKT                  $44.53                    
 Blondell Pugh            30808                    6011                     EFT                                $393.25                   
+Leota Dilliard           32628                    4829                     VENMO                              $40.00                    
 Leota Dilliard           32628                    5818                     APPLE/BILL                         $17.31                    
+Ernie Stenseth           32922                    5311                     NORDSTROM                          $257.05                   
 Lizette Stem             33452                    5411                     TARGETT                            $91.89                    
 Abel Monica              33555                    5812                     BESTBUY                            $10000.00                 
+Delmy Ahle               33653                    8999                     ROBERTABBOTTTAXMartinez            $450.00                   
+Bernardo Figeroa         34454                    9402                     USPSPO                             $20.40                    
+Abel Maclead             37226                    5541                     CIRCLEK                            $7.05                     
+Donette Foller           37466                    5542                     ICEBOX                             $26.97                    
 Donette Foller           37466                    5542                     SHELLOIL                           $37.95                    
 Melissa Wiklund          38256                    5411                     SAFEWAY                            $146.56                   
+Dark Joseph              43991                    5411                     SHOPRITEMONTGOMERYS                $375.50                   
 Venn Artie               44891                    5812                     BESTBUY                            $10000.00                 
+Fuller Don               53111                    5411                     SHOPRITEMONTGOMERYS                $375.50                   
+Sam Mirasca              53222                    5812                     KohlsAshland                       $725.51                   
