@@ -65,7 +65,7 @@ public:
 
 	}
 
-	//If transaction is too high (more than 3*average of all transactions)
+	//Apply transaction filter rule 1 (high value anamoly) 
 	void filter_transactions_rule_1(vector<Transaction_Account>& flagged_transactions)
 	{
 		int count = 0;
@@ -112,19 +112,16 @@ public:
 
 	}
 
-	
+	//Apply transaction filter rule 2 (Transaction happened in another state)
 	void filter_transactions_rule_2(vector<Transaction_Account>& flagged_transactions) {
 		//Iterate over all merchant_transactions
-
-		//Iterate over all the transactions in a merchant
-
-		// If this state != trans insert (info to the flagged transactions)
-
 		auto merchant_iter = this->merchant_transactions.begin();
 		while (merchant_iter != merchant_transactions.end()) {
+			//Iterate over all the transactions in a merchant
 			auto transaction_iter = merchant_iter->second.begin();
 			while (transaction_iter != merchant_iter->second.end())
 			{
+				// If this state != trans insert (info to the flagged transactions)
 				if (this->get_state().compare(transaction_iter->second.get_merchant_state()) != 0)
 				{
 					Transaction trans = transaction_iter->second;
