@@ -7,4 +7,4 @@
   <li> The fraud rule 1 has been implemented as negative transactions > 5 times average of other transactions with the same merchant are flagged.</li>
   <li> The fraud rule 2 checks if the state of account holder is different from the state of actual transaction, if yes it flags it.</li>
 </ol>
-  
+ <img src="https://github.com/amughalbscs16/Save-C-Test/blob/main/Output_Screen.png?raw=true" width="100%">
