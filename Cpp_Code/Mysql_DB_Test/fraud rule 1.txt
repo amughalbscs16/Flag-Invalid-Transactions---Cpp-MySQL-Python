@@ -1,0 +1,17 @@
+Fraud Rule 1: (Transactions > 5 times the average of other transactions with same merchant)
+Name                     Account Number           Transaction Number       Merchant                           Transaction Amount       
+Shenika Seewald          17504                    5542                     SUNOCO03813748                     $30.25                    
+Lenna Paprocki           18393                    5310                     WAL-MART#1409HOUSTON               $20.28                    
+Francine Vocelka         20759                    5912                     CVS/PHARMACY#11065DALLAS           $299.39                   
+Doe John                 22222                    5812                     BESTBUY                            $10000.00                 
+Jose Stockham            22965                    7298                     FLIRTSPAANDBROWBARMANHASSET        $150.00                   
+Karl Klonowski           25770                    5812                     GONZORAMEN                         $27.91                    
+Minna Amigon             28226                    5499                     CHILLOUTSNOWBALLSRICHMOND          $10.50                    
+Kimbery Madarang         30772                    5814                     MCDONALD'SF12915                   $1.08                     
+Blondell Pugh            30808                    6011                     EFT                                $393.25                   
+Leota Dilliard           32628                    5818                     APPLE.COM/BILL866-712-7753         $17.31                    
+Lizette Stem             33452                    5411                     TARGETT-1240BroadwaChulaVista      $91.89                    
+Abel Monica              33555                    5812                     BESTBUY                            $10000.00                 
+Donette Foller           37466                    5542                     SHELLOIL57543437404                $37.95                    
+Melissa Wiklund          38256                    5411                     SAFEWAY#1566                       $146.56                   
+Venn Artie               44891                    5812                     BESTBUY                            $10000.00                 

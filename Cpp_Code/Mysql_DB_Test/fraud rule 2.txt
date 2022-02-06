@@ -1,0 +1,18 @@
+
+Fraud Rule 2:
+Name                     Account Number           Transaction Number       Expected Transaction Location      Actual Transaction Location        
+Shenika Seewald          17504                    5542                     CA                                 CA                       
+Lenna Paprocki           18393                    5310                     AK                                 AK                       
+Francine Vocelka         20759                    5912                     NM                                 NM                       
+Doe John                 22222                    5812                     CA                                 NY                       
+Jose Stockham            22965                    7298                     NY                                 NY                       
+Karl Klonowski           25770                    5812                     NJ                                 NJ                       
+Minna Amigon             28226                    5499                     PA                                 PA                       
+Kimbery Madarang         30772                    5814                     NJ                                 NJ                       
+Blondell Pugh            30808                    6011                     RI                                 RI                       
+Leota Dilliard           32628                    5818                     CA                                 CA                       
+Lizette Stem             33452                    5411                     NJ                                 NJ                       
+Abel Monica              33555                    5812                     NY                                 NY                       
+Donette Foller           37466                    5542                     OH                                 OH                       
+Melissa Wiklund          38256                    5411                     OH                                 OH                       
+Venn Artie               44891                    5812                     NJ                                 NY                       
