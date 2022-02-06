@@ -126,7 +126,6 @@ public:
 				{
 
 					Transaction trans = transaction_iter->second;
-					cout << this->get_state() << " " + trans.get_merchant_state() << endl;
 					Transaction_Account trans_account;
 					this->make_transaction_account(trans_account, trans);
 					flagged_transactions.push_back(trans_account);
