@@ -12,7 +12,7 @@ public:
 		for (int i = 0; i < flagged_transactions_rule_1.size(); i++)
 		{
 			Transaction_Account trans_acc = flagged_transactions_rule_1[i];
-			cout << setw(25) << left << trans_acc.get_first_name() + " " + trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_merchant_description() << "$" << setw(25) << left << setprecision(2) << abs(trans_acc.get_transaction_amount()) << endl;
+			cout << setw(25) << left <<   trans_acc.get_last_name() + " " + trans_acc.get_first_name()  << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_merchant_description() << "$" << setw(25) << left << setprecision(2) << abs(trans_acc.get_transaction_amount()) << endl;
 		}
 
 		cout << endl << "Fraud Rule 2:" << endl;
@@ -21,7 +21,7 @@ public:
 		for (int i = 0; i < flagged_transactions_rule_2.size(); i++)
 		{
 			Transaction_Account trans_acc = flagged_transactions_rule_2[i];
-			cout << setw(25) << left << trans_acc.get_first_name() + " " + trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_actual_state() << setw(25) << left << trans_acc.get_shopped_state() << endl;
+			cout << setw(25) << left <<  trans_acc.get_last_name() + " " + trans_acc.get_first_name()  << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_actual_state() << setw(25) << left << trans_acc.get_shopped_state() << endl;
 		}
 
 	}
@@ -35,7 +35,7 @@ public:
 		for (int i = 0; i < flagged_transactions_rule_1.size(); i++)
 		{
 			Transaction_Account trans_acc = flagged_transactions_rule_1[i];
-			File_1 << setw(25) << left << trans_acc.get_first_name() + " " + trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_merchant_description() << "$" << setw(25) << left << setprecision(2) << abs(trans_acc.get_transaction_amount()) << endl;
+			File_1 << setw(25) << left << trans_acc.get_last_name() + " " + trans_acc.get_first_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_merchant_description() << "$" << setw(25) << left << setprecision(2) << abs(trans_acc.get_transaction_amount()) << endl;
 		}
 		File_1.close();
 
@@ -46,7 +46,7 @@ public:
 		for (int i = 0; i < flagged_transactions_rule_2.size(); i++)
 		{
 			Transaction_Account trans_acc = flagged_transactions_rule_2[i];
-			File_2 << setw(25) << left << trans_acc.get_first_name() + " " + trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_actual_state() << setw(25) << left << trans_acc.get_shopped_state() << endl;
+			File_2 << setw(25) << left << trans_acc.get_last_name() + " " + trans_acc.get_first_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_actual_state() << setw(25) << left << trans_acc.get_shopped_state() << endl;
 		}
 		File_2.close();
 	}

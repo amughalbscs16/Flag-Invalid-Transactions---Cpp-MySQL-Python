@@ -1,19 +1,19 @@
 
 Fraud Rule 2:
 Name                     Account Number           Transaction Number       Expected Transaction Location      Actual Transaction Location        
-Smith Michael            11111                    5812                     TX                                 FL                       
-Doe John                 22222                    5812                     CA                                 NY                       
-Doe Jane                 33333                    5812                     NY                                 NJ                       
-Abel Monica              33555                    5542                     NY                                 CA                       
-Green Ruth               37222                    5499                     OH                                 CA                       
-Green Ruth               37222                    5812                     OH                                 CA                       
-Green Ruth               37222                    5812                     OH                                 GA                       
-Green Ruth               37222                    5814                     OH                                 CA                       
-Green Ruth               37222                    5812                     OH                                 CA                       
-Green Ruth               37222                    8299                     OH                                 CA                       
-Dark Joseph              43991                    5812                     MI                                 NY                       
-Venn Artie               44891                    5812                     NJ                                 NY                       
-Fuller Don               53111                    5812                     OH                                 NY                       
-West Anthony             54891                    5542                     SD                                 CA                       
-West Anthony             54891                    5812                     SD                                 NY                       
-West Anthony             54891                    7211                     SD                                 MD                       
+Michael Smith            11111                    5812                     TX                                 FL                       
+John Doe                 22222                    5812                     CA                                 NY                       
+Jane Doe                 33333                    5812                     NY                                 NJ                       
+Monica Abel              33555                    5542                     NY                                 CA                       
+Ruth Green               37222                    5499                     OH                                 CA                       
+Ruth Green               37222                    5812                     OH                                 CA                       
+Ruth Green               37222                    5812                     OH                                 GA                       
+Ruth Green               37222                    5814                     OH                                 CA                       
+Ruth Green               37222                    5812                     OH                                 CA                       
+Ruth Green               37222                    8299                     OH                                 CA                       
+Joseph Dark              43991                    5812                     MI                                 NY                       
+Artie Venn               44891                    5812                     NJ                                 NY                       
+Don Fuller               53111                    5812                     OH                                 NY                       
+Anthony West             54891                    5542                     SD                                 CA                       
+Anthony West             54891                    5812                     SD                                 NY                       
+Anthony West             54891                    7211                     SD                                 MD                       
