@@ -1,7 +1,7 @@
 // Main.cpp
 //
 #include "Account.hpp"
-
+#include <iomanip>
 MYSQL* make_mysql_conn()
 {
 	int port = 3306;
@@ -67,7 +67,6 @@ void read_transactions(MYSQL* conn, map<int, Transaction>& transactions, map<int
 	{
 		cout << "Transactions Query failed: " << mysql_error(conn) << endl;
 	}
-	cout << "Total number of rows  " << count;
 }
 
 void read_accounts(MYSQL* conn, map<int, Account>& accounts)
@@ -125,6 +124,29 @@ void apply_flag_rules(map<int, Account>& accounts, vector<Transaction_Account>& 
 	
 
 }
+
+void print_flagged_transactions(map<int, Account> accounts, vector<Transaction_Account>& flagged_transactions_rule_1, vector<Transaction_Account>& transactions_rule_2)
+{
+	cout << "Fraud Rule 1: (Transactions > 5 times the average of other transactions with same merchant)" << endl;
+	cout << fixed;
+	cout << setw(25) << left << "Name" << setw(25) << left << "Account Number" << setw(25) << left << "Transaction Number" << setw(35) << left << "Merchant" << setw(25) << left << "Transaction Amount" << endl;
+	for (int i = 0; i < flagged_transactions_rule_1.size(); i++)
+	{
+		Transaction_Account trans_acc = flagged_transactions_rule_1[i];
+		cout << setw(25) << left << trans_acc.get_first_name()+" "+ trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_merchant_description() << "$" << setw(25) << left << setprecision(2) <<abs(trans_acc.get_transaction_amount()) << endl;
+	}
+
+	cout  << endl << "Fraud Rule 2:" << endl;
+	cout << fixed;
+	cout << setw(25) << left << "Name" << setw(25) << left << "Account Number" << setw(25) << left << "Transaction Number" << setw(35) << left << "Expected Transaction Location" << setw(35) << left << "Actual Transaction Location" << endl;
+	for (int i = 0; i < flagged_transactions_rule_1.size(); i++)
+	{
+		Transaction_Account trans_acc = flagged_transactions_rule_1[i];
+		cout << setw(25) << left << trans_acc.get_first_name() + " " + trans_acc.get_last_name() << setw(25) << left << trans_acc.get_account_number() << setw(25) << left << trans_acc.get_transaction_number() << setw(35) << left << trans_acc.get_actual_state() << setw(25) << left << trans_acc.get_shopped_state() << endl;
+	}
+
+}
+
 void write_flagged_transactions(map<int, Account> accounts, vector<Transaction_Account>& flagged_transactions_rule_1, vector<Transaction_Account>& transactions_rule_2)
 {
 
@@ -142,14 +164,7 @@ int main()
 		read_transactions(conn, transactions, accounts);
 	}
 	apply_flag_rules(accounts, flagged_transactions_rule_1, flagged_transactions_rule_2);
-	for (int i = 0; i < flagged_transactions_rule_2.size(); i++)
-	{
-		cout << "Shopped State: " << flagged_transactions_rule_2[i].get_shopped_state() << "Actual: " << flagged_transactions_rule_2[i].get_actual_state() << endl;
-	}
-	for (int i = 0; i < flagged_transactions_rule_1.size(); i++)
-	{
-		cout <<  "Transaction Amount: " << flagged_transactions_rule_1[i].get_transaction_amount() << endl;
-	}
+	print_flagged_transactions(accounts, flagged_transactions_rule_1, flagged_transactions_rule_2);
 	write_flagged_transactions(accounts, flagged_transactions_rule_1, flagged_transactions_rule_2);
 
 

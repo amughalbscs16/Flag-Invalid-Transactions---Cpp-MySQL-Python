@@ -34,6 +34,7 @@ public:
 	{
 
 	}
+
 	Account(string fname, string lname, string st_ad, int unit, string city, string state, string zip, string dob, string ssn, string email, long long mob_num, int acc_num)
 	{
 		this->set_first_name(fname);
@@ -49,6 +50,7 @@ public:
 		this->set_mobile_number(mob_num);
 		this->set_account_number(acc_num);
 	}
+
 	//If transaction happened in another state
 	void make_transaction_account(Transaction_Account& trans_account, Transaction trans)
 	{
@@ -63,6 +65,7 @@ public:
 		trans_account = Transaction_Account(actual_state, shopped_state, fname, lname, merchant_description, transaction_amount, transaction_number, account_number);
 
 	}
+
 	//If transaction is too high (more than 3*average of all transactions)
 	void filter_transactions_rule_1(vector<Transaction_Account>& flagged_transactions)
 	{
@@ -85,7 +88,6 @@ public:
 						double other_average = (this->negative_sum_transaction[merchant_number] + abs(trans.get_transaction_amount())) / (this->negative_count_merchant[merchant_number] - 1);
 						if (trans.get_transaction_amount() < negative_rule_times* other_average)
 						{
-							cout << trans.get_transaction_amount() << "-" << other_average << endl;
 							Transaction_Account trans_account;
 							this->make_transaction_account(trans_account, trans);
 							flagged_transactions.push_back(trans_account);
